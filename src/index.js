@@ -5,7 +5,7 @@ import Form from './components/form/Form.js';
 
 function Hello() {
     return <div>Hello React Redux
-        <Form />
+        <Form fname='David' />
     </div>
 }
 
