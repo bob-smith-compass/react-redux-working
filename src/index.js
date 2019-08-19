@@ -8,7 +8,7 @@ import Form from './components/form/Form.js';
 import About from './components/about/About.js';
 import App from './App.js';
 
-import { store } from './store/configStore';
+import store  from './store/configStore';
 
 function Hello() {
 
