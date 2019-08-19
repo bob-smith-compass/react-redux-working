@@ -8,6 +8,7 @@ let defaultState = {
     score: 5
 }
 let mreducer = (state = defaultState, action) => {
+    console.log(`state`, state, action.type);
     switch (action.type) {
         case 'INCREASE':
             return Object.assign({}, state, {score: defaultState.score + 1})

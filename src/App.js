@@ -2,10 +2,13 @@ import React from 'react';
 import Home from './components/home/Home';
 import { Link, Route } from 'react-router-dom';
 import About from './components/about/About';
+import store from './store/configStore';
 
 const App = () => {
 
     let handleClick = (e) => {
+        console.log('handleClick');
+        store.dispatch({ type: 'INCREASE' })
         console.log('handleClick');
     }
 
