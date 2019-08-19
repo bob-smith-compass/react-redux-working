@@ -7,32 +7,15 @@ import './index.css';
 import Form from './components/form/Form.js';
 import About from './components/about/About.js';
 import App from './App.js';
-/**
- * Redux
- * 1. create store in your app entry point
- */
-import { createStore } from 'redux';
-let defaultState = {
-    name: 'David',
-    score: 5
-}
-let mreducer = (state = defaultState, action) => {
-    switch (action.type) {
-        case 'INCREASE':
-            return Object.assign({}, state, {score: defaultState.score + 1})
-            // break;
-        case 'DECREASE':
-            return Object.assign({}, state, {score: defaultState.score - 1})
-            // break;
-    
-        default:
-            return state
-            // break;
-    }
-}
 
+import { store } from './store/configStore';
 
 function Hello() {
+
+    let handleClick = (e) => {
+        console.log('handleClick');
+        store.dispatch({ type: 'INCREASE' })
+    }
     return <div className="container-fluid">Hello React Redux
         {/* <Home /> */}
         <Home />
@@ -42,6 +25,7 @@ function Hello() {
             <Link to="form" className="btn btn-primary btn-larg">Form</Link>
             <Link to="/" className="btn btn-primary btn-larg">Home</Link>
             <Link to="/about" className="btn btn-primary btn-larg">About</Link>
+            <button onClick={handleClick}>Action</button>
         </div>
 
         {/* </Switch> */}

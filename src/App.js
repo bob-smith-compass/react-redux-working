@@ -4,6 +4,11 @@ import { Link, Route } from 'react-router-dom';
 import About from './components/about/About';
 
 const App = () => {
+
+    let handleClick = (e) => {
+        console.log('handleClick');
+    }
+
     return (
         <div>
             <h3>App</h3>
@@ -15,6 +20,8 @@ const App = () => {
                     <Link to="form" className="btn btn-primary btn-larg">Form</Link>
                     <Link to="/" className="btn btn-primary btn-larg">Home</Link>
                     <Link to="/about" className="btn btn-primary btn-larg">About</Link>
+                    <button onClick={handleClick}>Action</button>
+
                 </div>
 
                 {/* </Switch> */}
