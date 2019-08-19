@@ -11,7 +11,7 @@ let mreducer = (state = defaultState, action) => {
     console.log(`state`, state, action.type);
     switch (action.type) {
         case 'INCREASE':
-            return Object.assign({}, state, {score: defaultState.score + 1})
+            return Object.assign({}, state, {score: defaultState.score + 1}) // BUG, state does not update as you wish
             // break;
         case 'DECREASE':
             return Object.assign({}, state, {score: defaultState.score - 1})
