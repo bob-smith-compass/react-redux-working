@@ -1,6 +1,10 @@
 /**
  * Redux
  * 1. create store in your app entry point
+ * 2. store.dispatch(action)
+ * 3. store.subscribe(listener)
+ * 4. store.getState()
+ * 5. replaceReducer(nextReducer)
  */
 import { createStore } from 'redux';
 let defaultState = {
