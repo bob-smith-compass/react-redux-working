@@ -3,6 +3,10 @@ import Home from './components/home/Home';
 import { Link, Route } from 'react-router-dom';
 import About from './components/about/About';
 import store from './store/configStore';
+/**
+ * readt-redux
+ */
+import { Provider } from 'react-redux';
 
 const App = () => {
 
