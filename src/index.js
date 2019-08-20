@@ -9,6 +9,11 @@ import About from './components/about/About.js';
 import App from './App.js';
 
 import store  from './store/configStore';
+/**
+ * readt-redux
+ */
+import { Provider } from 'react-redux';
+
 
 function Hello() {
 
@@ -35,4 +40,4 @@ function Hello() {
 }
 
 // render(<Router exct="form" component={Form}><Hello /></Router>, document.getElementById('root'));
-render(<Router><App /></Router>, document.getElementById('root'));
+render(<Router><Provider store={store}><App /></Provider></Router>, document.getElementById('root'));
