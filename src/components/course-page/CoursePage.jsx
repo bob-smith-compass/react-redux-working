@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 export default class CoursePage extends Component {
 
@@ -41,3 +42,8 @@ export default class CoursePage extends Component {
         )
     }
 }
+
+/**
+ * Connect CoursePage component to redux
+ */
+function mapStateToProps()
