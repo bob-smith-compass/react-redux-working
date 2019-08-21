@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import * as courseActions from '../../redux/actions/courseActions';
+import PropTypes from 'prop-types';
 
-export default class CoursePage extends Component {
+
+class CoursePage extends Component {
 
     constructor(props) {
         super(props);
@@ -26,7 +29,11 @@ export default class CoursePage extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
+        console.log(this.state);
+        /**
+         * connect() automatically passes `dispatch` if we ommit mapDispatchToProps()
+         */
+        this.props.dispatch(courseActions.createCourse()); // Uncaught TypeError: _this.props.dispatch is not a function - need `PropTypes`
     }
     render() {
         return (
@@ -43,7 +50,22 @@ export default class CoursePage extends Component {
     }
 }
 
+CoursePage.propTypes = {
+    dispatch: PropTypes.func.isRequired
+}
 /**
  * Connect CoursePage component to redux
  */
-function mapStateToProps()
+// function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps){
+    return {
+        courses: state.courses
+    }
+}
+
+// function mapDispatchToProps(){
+//     // TODO: mapDispatchToProps is optional
+// }
+// export default ConnectedCoursePage = connect(mapStateToProps, mapDispatchToProps)(CoursePage);
+// export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);
+export default connect(mapStateToProps)(CoursePage);
