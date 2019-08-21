@@ -3,7 +3,7 @@ import { combinedReducers } from 'redux';
 import courses from './courseReducer';
 
 const rootReducer = combinedReducers({
-    courses: courses
+    courses // Object shorcut notation courses: courses
 });
 
 export default rootReducer;

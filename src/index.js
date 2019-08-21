@@ -8,11 +8,18 @@ import Form from './components/form/Form.js';
 import About from './components/about/About.js';
 import App from './App.js';
 
-import store  from './store/configStore';
+// import store  from './store/configStore';
 /**
  * readt-redux
  */
 import { Provider } from 'react-redux';
+/**
+ * TODO: move all this redux logic to redux
+ */
+import {createStore} from 'redux';
+import rootReducer from './redux/reducers/courseReducer';
+
+let store = createStore(rootReducer)
 
 
 function Hello() {

@@ -6,7 +6,9 @@
  * 4. store.getState()
  * 5. replaceReducer(nextReducer) // useful for hot-reloading
  */
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+// import { rootReducer } from '../redux/reducers'
+// import { rootReducer } from '../redux/reducers' // index implied
 /**
  * Immutibility - dealing with
  */
@@ -35,5 +37,14 @@ let mreducer = (state = defaultState, action) => {
             // break;
     }
 }
-const store = createStore(mreducer);
+const store = function configureStore(defaultState){
+
+    const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose; // support for redux devtools
+
+    return createStore(
+        mreducer,
+        defaultState,
+        composeEnhancer
+        );
+}
 export default store;
