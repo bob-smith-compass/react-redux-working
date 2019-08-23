@@ -9,9 +9,10 @@ class CoursePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            course: {
+            
+            courses: [{
                 title: ""
-            }
+            }]
         }
     }
 
@@ -39,10 +40,11 @@ class CoursePage extends Component {
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <h1>Course: <span style={this.elStyle}></span>{this.state.course.title}</h1>
+                    {/* <h1>Course: <span style={this.elStyle}></span>{this.state.course.title}</h1> */}
                     <h2>Add</h2>
                     <input type="text" onChange={this.handleChange} value={this.state.course.title}/>
                     <input type="submit" value="Save" className="btn btn-warning btn-lg"/>
+                    {this.props.courses.map( e => (<div key={e}>{e}</div>))}
 
                 </form>
             </div>
@@ -51,15 +53,17 @@ class CoursePage extends Component {
 }
 
 CoursePage.propTypes = {
-    dispatch: PropTypes.func.isRequired
+    dispatch: PropTypes.func.isRequired,
+    courses: PropTypes.array.isRequired
 }
 /**
  * Connect CoursePage component to redux
  */
 // function mapStateToProps(state, ownProps){
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state){
     return {
-        courses: state.courses
+        // courses: state.courses
+        courses: [{title: 'JS'}]
     }
 }
 

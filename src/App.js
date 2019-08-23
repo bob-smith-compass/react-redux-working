@@ -4,6 +4,7 @@ import { Link, Route } from 'react-router-dom';
 import About from './components/about/About';
 import store from './store/configStore';
 import CoursePage from './components/course-page/CoursePage.jsx';
+import Button from './components/button/Button.jsx';
 
 const App = () => {
 
@@ -26,7 +27,8 @@ const App = () => {
                     <Link to="/" className="btn btn-primary btn-larg">Home</Link>
                     <Link to="/about" className="btn btn-primary btn-larg">About</Link>
                     <button onClick={handleClick}>Action</button>
-                    <CoursePage />
+                    {/* <CoursePage /> */}
+                    <Button />
 
                 </div>
 

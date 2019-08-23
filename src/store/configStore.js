@@ -14,6 +14,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
  */
 import produce from 'immer';
 let defaultState = {
+    courses: [{
+        title: 'JavaScript'
+    }],
     name: 'David',
     score: 5
 }
