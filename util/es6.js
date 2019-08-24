@@ -1,3 +1,8 @@
+// import fetch from 'isomorphic-fetch';
+// import 'isomorphic-fetch';
+require('isomorphic-fetch');
+
+
 let [first, ...others] = [1, 2,3,4,5];
 
 console.log(first, others); // 1 [ 2, 3, 4, 5 ]
@@ -22,7 +27,21 @@ class Employee extends Person {
     }
 }
 let p = new Person('John');
-let david = new Employee(12345678);
+let david = new Employee('David', 12345678);
 
 p.show();
 david.show();
+
+/**
+ * Promise
+ */
+const fetchData = (url) => {
+    fetch(url)
+    .then( res => {
+        res.json().then( data => {
+            console.log(data);
+        })
+    })
+}
+
+fetchData('https://restcountries.eu/rest/v2/all');
