@@ -5,6 +5,7 @@ import About from './components/about/About';
 import store from './store/configStore';
 import CoursePage from './components/course-page/CoursePage.jsx';
 import Button from './components/button/Button.jsx';
+import PassingFunctions from './components/passing-functions-as-props/PassingFunctions.jsx';
 
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
                     <button onClick={handleClick}>Action</button>
                     {/* <CoursePage /> */}
                     <Button />
+                    <PassingFunctions />
 
                 </div>
 

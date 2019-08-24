@@ -23,6 +23,13 @@ const Display = (props) => {
   );
 };
 
+let circle = {
+  radius: 2,
+  name: 'Circle',
+  precision: 3
+}
+const circleArea = ({radius}, {precision=2}) => (PI * radius * radius).toFix(precision);
+
 
 
 const Button = (props) => {
@@ -37,6 +44,7 @@ const Button = (props) => {
       <Display count={count} onClickFunctionComesFromParent={handleClick}/>
       <button onClick={handleClick}>{`RButton ${count}`}
       <Display count={count} />
+      <Display count={circleArea(circle)} />
         
       </button>
       <button onClick={handleClick}>{`RButton ${count}`}</button>
