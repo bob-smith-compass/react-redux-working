@@ -12,8 +12,8 @@
 
 // export default Button;
 
-import { React, useState } from "react";
 
+import { React, useState } from "react";
 let o = [
   {
     name: 'David',
@@ -24,6 +24,21 @@ let o = [
     role: 'Developer'
   }
 ]
+
+let countries = [
+  {
+    name: '...waiting',
+    nativeName: '...waiting'
+  }
+]
+let asyncData = async (url) => {
+    let res = await fetch(url);
+    const data = await res.json();
+    // console.log(data);
+    countries = data;
+    console.log(`countries: `, countries);
+}
+asyncData('https://restcountries.eu/rest/v2/all');
 
 const Display = (props) => {
   return (
@@ -67,19 +82,20 @@ const Button = (props) => {
   );
 };
 class Card extends React.Component {
-  
-  
   render() {
     return(
       <div style={{border: 'solid 1px gray', padding: '5px', margin: '2px 2px 0 0'}}>
         <div style={{color: 'red'}}>Name: {this.props.name}</div>
         <div>Profile: {this.props.role}</div>
+        <div>Name/Country: {this.props.name}</div>
+        <div>Native Name: {this.props.nativeName}</div>
       </div>
     )
   }
 }
 
 export default Button;
+
 const List = () => {
   let howMany = 5;
   return(
@@ -93,6 +109,10 @@ const List = () => {
       }
       <Card {...o[0]}/>
       <Card {...o[1]}/>
+      <Card {...countries[0]}/>
+      <Card {...countries[1]}/>
+      
+      {JSON.stringify(countries[0])}
     </div>
                     
   )

@@ -44,7 +44,7 @@ const fetchData = (url) => {
     })
 }
 
-fetchData('https://restcountries.eu/rest/v2/all');
+// fetchData('https://restcountries.eu/rest/v2/all');
 
 /**
  * async await
@@ -54,3 +54,4 @@ let asyncData = async (url) => {
     const data = await res.json();
     console.log(data);
 }
+asyncData('https://restcountries.eu/rest/v2/all');
