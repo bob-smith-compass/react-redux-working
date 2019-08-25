@@ -45,3 +45,12 @@ const fetchData = (url) => {
 }
 
 fetchData('https://restcountries.eu/rest/v2/all');
+
+/**
+ * async await
+ */
+let asyncData = async (url) => {
+    let res = await fetch(url);
+    const data = await res.json();
+    console.log(data);
+}
